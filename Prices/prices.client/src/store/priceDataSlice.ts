@@ -1,7 +1,6 @@
 
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { IAppState } from './appState';
-//import axios from 'axios';
 import { IPriceData } from '../models/priceData'
 
 export const priceDataSlice = createSlice({
@@ -9,6 +8,7 @@ export const priceDataSlice = createSlice({
     initialState: {
         data: [] as IPriceData[],
         status: 'idle',
+        error: ''
     },
     reducers: {
     }, 
@@ -68,8 +68,6 @@ export const priceDataSlice = createSlice({
             })
     }
 })
-
-export const { toggleUIMode, setDisplayMode } = priceDataSlice.actions
 
 export const savePriceUpdate = createAsyncThunk('priceUpdate', async (data: IPriceData[]) => {
     return data;

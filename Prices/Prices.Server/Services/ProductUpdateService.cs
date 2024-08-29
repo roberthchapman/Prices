@@ -1,12 +1,13 @@
 ﻿using Microsoft.AspNetCore.SignalR;
+using Prices.Server.Hubs;
 using Prices.Server.Models;
 
 namespace Prices.Server.Services
 {
-        public class ProductUpdateService : IProductUpdateService, IHostedService, IDisposable
+    public class ProductUpdateService : IProductUpdateService, IHostedService, IDisposable
         {
             private readonly IHubContext<SignalRHub> _hubContext;
-            private Timer _timer;
+            private Timer? _timer;
 
             public ProductUpdateService(IHubContext<SignalRHub> hubContext)
             {
@@ -22,7 +23,7 @@ namespace Prices.Server.Services
             public IEnumerable<PriceData> GetPriceData()
             {
                 DateTime dateTime = DateTime.Now;
-                return Enumerable.Repeat(1, 3).Select(_ => Random.Shared.Next(0, 10) + 1).Distinct().Select(index => new PriceData
+                return Enumerable.Range(1, 3).Select(_ => Random.Shared.Next(0, 10) + 1).Distinct().Select(index => new PriceData
                 {
                     ID = index,
                     Name = "Product " + index,

@@ -1,1 +1,7 @@
 # Prices
+
+The solution is implemented with SignalR as it needs a messaging system to match the brief of keeping data flow to a minimum. There's an initial REST Api call to get the initial set of data before SignalR takes over with updates.  I implemented a service with some fairly simple logic in it to send an update for 3 (or less, once duplicates are excluded) random items every second.  Prices are randomised and state is not kept track of in the interests of keeping to the time limit.  A more detailed model of prices could have been done instead.  I also kept the same model as for the REST Api call so that it sends product name (which will be able to update via SignalR) which is probably unnecessary and it sends the date time with each record when it could just appear once so this data structure was more for the sake of simplicity.  
+
+In the front end, I implemented Redux Toolkit and fairly simple styling.  Normally, I'd want to move everything out of App.tsx into components and remove all the inline styling.  Just clean up the structure.  Also I'd want to tweak the reducers so it used one common function.  And I wish I could have implemented a subscription toggle rather than having to have two separate buttons.  
+
+And in general, testing and error handling need attention.  

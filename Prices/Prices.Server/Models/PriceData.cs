@@ -6,7 +6,7 @@ namespace Prices.Server.Models
     {
         [Key]
         public int ID { get; set; }
-        public string Name { get; set; }
+        public required string Name { get; set; }
         public decimal Price { get; set; }
         public DateTime UpdatedAt { get; set; }
 

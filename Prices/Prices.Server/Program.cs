@@ -1,11 +1,10 @@
-using Prices.Server;
+using Prices.Server.Hubs;
 using Prices.Server.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
+
 builder.Services.AddSingleton<IProductUpdateService, ProductUpdateService>();
 builder.Services.AddHostedService<ProductUpdateService>();
 

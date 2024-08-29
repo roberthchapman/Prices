@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 
-namespace Prices.Server
+namespace Prices.Server.Hubs
 {
-    public class SignalRHub: Hub
+    public class SignalRHub : Hub, ISignalRHub
     {
         public async Task NewMessage(string user, string message)
         {

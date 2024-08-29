@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Prices.Server.Hubs;
 using Prices.Server.Models;
 
 namespace Prices.Server.Controllers
